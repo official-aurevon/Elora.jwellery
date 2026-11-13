@@ -1,0 +1,728 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ÉLORA | Fine Minimal Jewellery</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+    background: #faf8f4;
+    color: #302a22;
+    font-family: 'Montserrat', sans-serif;
+}
+
+:root {
+    --gold: #aa8959;
+    --cream: #faf8f4;
+    --dark: #29251f;
+}
+
+nav {
+    height: 85px;
+    padding: 0 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--cream);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid #eae4d9;
+}
+
+.logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 36px;
+    letter-spacing: 5px;
+}
+
+nav ul {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+}
+
+nav a {
+    color: #514a40;
+    text-decoration: none;
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+nav a:hover { color: var(--gold); }
+
+.hero {
+    min-height: 680px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 65px 8%;
+    gap: 55px;
+}
+
+.hero-text small,
+.subtitle {
+    color: var(--gold);
+    letter-spacing: 4px;
+    font-size: 10px;
+}
+
+.hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(60px, 7vw, 100px);
+    font-weight: 400;
+    line-height: .98;
+    margin: 28px 0;
+}
+
+.hero p {
+    color: #81796d;
+    line-height: 2.1;
+    font-size: 13px;
+    max-width: 390px;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 32px;
+    padding: 17px 37px;
+    background: var(--gold);
+    color: white;
+    text-decoration: none;
+    font-size: 10px;
+    letter-spacing: 2px;
+    transition: .3s;
+}
+
+.btn:hover { background: #79603d; }
+
+.hero-image img {
+    width: 100%;
+    height: 550px;
+    object-fit: cover;
+}
+
+.section {
+    padding: 100px 8%;
+    text-align: center;
+}
+
+.section h2,
+.about h2,
+.newsletter h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 57px;
+    font-weight: 400;
+    margin: 18px 0 50px;
+}
+
+.categories {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
+}
+
+.category img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    transition: .4s;
+}
+
+.category {
+    overflow: hidden;
+}
+
+.category:hover img { transform: scale(1.04); }
+
+.category h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 25px;
+    font-weight: 400;
+    margin-top: 18px;
+}
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
+    text-align: left;
+}
+
+.product {
+    background: white;
+    overflow: hidden;
+}
+
+.product img {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    transition: .5s;
+}
+
+.product:hover img { transform: scale(1.04); }
+
+.product-info { padding: 18px; }
+
+.product h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.price {
+    color: var(--gold);
+    font-size: 13px;
+    margin-top: 10px;
+}
+
+.tag {
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: #a38a63;
+    margin-bottom: 8px;
+}
+
+.dark-banner {
+    min-height: 430px;
+    background:
+    linear-gradient(#0005,#0005),
+    url('https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=1600') center/cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    padding: 50px 20px;
+}
+
+.dark-banner h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 65px;
+    font-weight: 400;
+}
+
+.dark-banner p {
+    font-size: 12px;
+    letter-spacing: 3px;
+    margin-top: 15px;
+}
+
+.about {
+    background: #eee9df;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 65px;
+    padding: 100px 10%;
+}
+
+.about img {
+    width: 100%;
+    height: 480px;
+    object-fit: cover;
+}
+
+.about h2 {
+    margin-bottom: 25px;
+}
+
+.about p {
+    color: #71695e;
+    font-size: 13px;
+    line-height: 2.2;
+}
+
+.values {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    padding: 75px 8%;
+    text-align: center;
+}
+
+.value h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 27px;
+    font-weight: 400;
+    margin: 17px 0;
+}
+
+.value p {
+    color: #837a6d;
+    font-size: 12px;
+    line-height: 1.9;
+}
+
+.testimonials {
+    background: #f0ece4;
+    text-align: center;
+    padding: 100px 12%;
+}
+
+.testimonials h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 55px;
+    font-weight: 400;
+    margin: 20px 0 30px;
+}
+
+.testimonials p {
+    max-width: 650px;
+    margin: auto;
+    color: #71695e;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px;
+    line-height: 1.7;
+}
+
+.testimonials small {
+    display: block;
+    margin-top: 25px;
+    letter-spacing: 2px;
+    color: var(--gold);
+    font-size: 10px;
+}
+
+.instagram {
+    padding: 90px 8%;
+    text-align: center;
+}
+
+.insta-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin-top: 40px;
+}
+
+.insta-grid img {
+    width: 100%;
+    height: 270px;
+    object-fit: cover;
+}
+
+.newsletter {
+    background: #e9e1d4;
+    text-align: center;
+    padding: 85px 20px;
+}
+
+.newsletter p {
+    font-size: 12px;
+    color: #756b5e;
+}
+
+.newsletter form {
+    margin: 30px auto 0;
+    display: flex;
+    max-width: 470px;
+}
+
+.newsletter input {
+    flex: 1;
+    min-width: 0;
+    padding: 16px;
+    border: 1px solid #c7b89f;
+    background: transparent;
+    outline: none;
+}
+
+.newsletter button {
+    border: none;
+    background: var(--dark);
+    color: white;
+    padding: 0 25px;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+
+footer {
+    background: var(--dark);
+    color: #e8dfd0;
+    padding: 65px 8% 25px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 50px;
+}
+
+.footer-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 37px;
+    letter-spacing: 5px;
+}
+
+footer p {
+    color: #b8ad9c;
+    font-size: 11px;
+    line-height: 2;
+    margin-top: 15px;
+}
+
+footer h4 {
+    font-size: 11px;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+footer a {
+    display: block;
+    color: #b8ad9c;
+    text-decoration: none;
+    font-size: 11px;
+    margin: 13px 0;
+}
+
+footer a:hover { color: white; }
+
+.copyright {
+    border-top: 1px solid #51483b;
+    padding-top: 25px;
+    text-align: center;
+    font-size: 10px;
+}
+
+@media(max-width: 850px) {
+    .categories, .products {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .about { grid-template-columns: 1fr; }
+
+    .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media(max-width: 600px) {
+    nav { padding: 0 4%; height: 75px; }
+    nav ul { gap: 10px; }
+    nav a { font-size: 8px; letter-spacing: 0; }
+    .logo { font-size: 24px; letter-spacing: 2px; }
+
+    .hero {
+        grid-template-columns: 1fr;
+        padding: 55px 7%;
+    }
+
+    .hero-image img { height: 380px; }
+
+    .section { padding: 75px 6%; }
+
+    .section h2, .about h2 { font-size: 43px; }
+
+    .categories, .products {
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+    }
+
+    .category img { height: 190px; }
+    .product img { height: 210px; }
+
+    .product-info { padding: 12px; }
+    .product h3 { font-size: 19px; }
+
+    .dark-banner h2 { font-size: 45px; }
+
+    .about { padding: 70px 7%; }
+
+    .about img { height: 350px; }
+
+    .values { grid-template-columns: 1fr; }
+
+    .insta-grid { grid-template-columns: 1fr 1fr; }
+    .insta-grid img { height: 180px; }
+
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+    <div class="logo">ÉLORA.</div>
+    <ul>
+        <li><a href="#home">HOME</a></li>
+        <li><a href="#categories">SHOP</a></li>
+        <li><a href="#about">ABOUT</a></li>
+        <li><a href="#contact">CONTACT</a></li>
+    </ul>
+</nav>
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+    <div class="hero-text">
+        <small>TIMELESS BEAUTY • MODERN DESIGN</small>
+        <h1>Elegance in<br>Every Detail.</h1>
+        <p>Discover jewellery that speaks softly but leaves a lasting impression. Created for those who appreciate the beauty of simplicity.</p>
+        <a href="#categories" class="btn">DISCOVER MORE</a>
+    </div>
+
+    <div class="hero-image">
+        <img src="https://images.unsplash.com/photo-1611652022419-a9419f74343d?w=1000" alt="Luxury jewellery">
+    </div>
+</section>
+
+<!-- CATEGORIES -->
+
+<section class="section" id="categories">
+    <div class="subtitle">EXPLORE OUR WORLD</div>
+    <h2>Shop By Category</h2>
+
+    <div class="categories">
+        <div class="category">
+            <img src="https://images.unsplash.com/photo-1617038220319-276d3cfab638?w=600" alt="Necklaces">
+            <h3>Necklaces</h3>
+        </div>
+
+        <div class="category">
+            <img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=600" alt="Earrings">
+            <h3>Earrings</h3>
+        </div>
+
+        <div class="category">
+            <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=600" alt="Rings">
+            <h3>Rings</h3>
+        </div>
+
+        <div class="category">
+            <img src="https://images.unsplash.com/photo-1611652022419-a9419f74343d?w=600" alt="Bracelets">
+            <h3>Bracelets</h3>
+        </div>
+    </div>
+</section>
+
+<!-- BEST SELLERS -->
+
+<section class="section">
+    <div class="subtitle">CUSTOMER FAVOURITES</div>
+    <h2>Best Sellers</h2>
+
+    <div class="products">
+        <div class="product">
+            <img src="https://images.unsplash.com/photo-1617038220319-276d3cfab638?w=600" alt="Gold necklace">
+            <div class="product-info">
+                <div class="tag">BEST SELLER</div>
+                <h3>Golden Grace</h3>
+                <div class="price">₹1,499</div>
+            </div>
+        </div>
+
+        <div class="product">
+            <img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=600" alt="Pearl earrings">
+            <div class="product-info">
+                <div class="tag">POPULAR</div>
+                <h3>Pearl Essence</h3>
+                <div class="price">₹899</div>
+            </div>
+        </div>
+
+        <div class="product">
+            <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=600" alt="Diamond ring">
+            <div class="product-info">
+                <div class="tag">SIGNATURE</div>
+                <h3>Solitaire Dream</h3>
+                <div class="price">₹1,199</div>
+            </div>
+        </div>
+
+        <div class="product">
+            <img src="https://images.unsplash.com/photo-1611652022419-a9419f74343d?w=600" alt="Gold bracelet">
+            <div class="product-info">
+                <div class="tag">NEW FAVOURITE</div>
+                <h3>Golden Aura</h3>
+                <div class="price">₹1,299</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- LIFESTYLE BANNER -->
+
+<section class="dark-banner">
+    <div>
+        <h2>Beauty Beyond Trends.</h2>
+        <p>JEWELLERY THAT TELLS YOUR STORY</p>
+        <a href="#collection" class="btn">EXPLORE THE COLLECTION</a>
+    </div>
+</section>
+
+<!-- NEW ARRIVALS -->
+
+<section class="section" id="collection">
+    <div class="subtitle">JUST ARRIVED</div>
+    <h2>New Arrivals</h2>
+
+    <div class="products">
+        <div class="product">
+            <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=600" alt="Elegant necklace">
+            <div class="product-info">
+                <h3>Moonlight Necklace</h3>
+                <div class="price">₹1,599</div>
+            </div>
+        </div>
+
+        <div class="product">
+            <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=600" alt="Elegant earrings">
+            <div class="product-info">
+                <h3>Golden Petals</h3>
+                <div class="price">₹999</div>
+            </div>
+        </div>
+
+        <div class="product">
+            <img src="https://images.unsplash.com/photo-1603561596112-db6a1e7a0e91?w=600" alt="Gold jewellery">
+            <div class="product-info">
+                <h3>Classic Charm</h3>
+                <div class="price">₹1,299</div>
+            </div>
+        </div>
+
+        <div class="product">
+            <img src="https://images.unsplash.com/photo-1611652022419-a9419f74343d?w=600" alt="Minimal jewellery">
+            <div class="product-info">
+                <h3>Pure Elegance</h3>
+                <div class="price">₹1,099</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ABOUT -->
+
+<section class="about" id="about">
+    <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=1000" alt="Jewellery craftsmanship">
+
+    <div>
+        <div class="subtitle">OUR STORY</div>
+        <h2>Less, But Beautiful.</h2>
+        <p>At ÉLORA, we believe true elegance lies in simplicity. Our collection celebrates individuality, timeless beauty and effortless sophistication.</p>
+        <p>Every detail is thoughtfully chosen to make ordinary moments feel extraordinary.</p>
+        <a href="#contact" class="btn">KNOW MORE</a>
+    </div>
+</section>
+
+<!-- BRAND VALUES -->
+
+<section class="values">
+    <div class="value">
+        <div class="subtitle">01</div>
+        <h3>Timeless Design</h3>
+        <p>Beautiful pieces that remain special beyond changing trends.</p>
+    </div>
+
+    <div class="value">
+        <div class="subtitle">02</div>
+        <h3>Thoughtful Details</h3>
+        <p>Every design celebrates the art of simplicity.</p>
+    </div>
+
+    <div class="value">
+        <div class="subtitle">03</div>
+        <h3>Made For You</h3>
+        <p>Jewellery to express your own unique personality.</p>
+    </div>
+</section>
+
+<!-- TESTIMONIAL -->
+
+<section class="testimonials">
+    <div class="subtitle">KIND WORDS</div>
+    <h2>Love From Our Customers</h2>
+    <p>"The designs are so elegant and beautiful. Exactly the kind of minimal jewellery I was looking for."</p>
+    <small>— CUSTOMER REVIEW DEMO</small>
+</section>
+
+<!-- INSTAGRAM -->
+
+<section class="instagram">
+    <div class="subtitle">FOLLOW OUR JOURNEY</div>
+    <h2 style="font-family:'Cormorant Garamond';font-size:48px;font-weight:400;margin-top:15px;">
+        @elora.jewels
+    </h2>
+
+    <div class="insta-grid">
+        <img src="https://images.unsplash.com/photo-1611652022419-a9419f74343d?w=500" alt="Jewellery inspiration">
+        <img src="https://images.unsplash.com/photo-1617038220319-276d3cfab638?w=500" alt="Gold jewellery">
+        <img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=500" alt="Pearl earrings">
+        <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=500" alt="Minimal ring">
+    </div>
+</section>
+
+<!-- NEWSLETTER -->
+
+<section class="newsletter">
+    <div class="subtitle">STAY IN TOUCH</div>
+    <h2>Something Beautiful Awaits.</h2>
+    <p>Subscribe to discover new collections and special updates.</p>
+
+    <form onsubmit="event.preventDefault(); alert('Thank you for subscribing!');">
+        <input type="email" placeholder="Enter your email address" required>
+        <button type="submit">SUBSCRIBE</button>
+    </form>
+</section>
+
+<!-- FOOTER -->
+
+<footer id="contact">
+    <div class="footer-grid">
+
+        <div>
+            <div class="footer-logo">ÉLORA.</div>
+            <p>Minimal designs. Timeless elegance.<br>Discover beauty in every detail.</p>
+        </div>
+
+        <div>
+            <h4>EXPLORE</h4>
+            <a href="#home">Home</a>
+            <a href="#categories">Shop</a>
+            <a href="#collection">New Arrivals</a>
+            <a href="#about">Our Story</a>
+        </div>
+
+        <div>
+            <h4>HELP</h4>
+            <a href="#contact">Contact Us</a>
+            <a href="#contact">Shipping</a>
+            <a href="#contact">Returns</a>
+            <a href="#contact">FAQs</a>
+        </div>
+
+        <div>
+            <h4>CONNECT</h4>
+            <a href="https://instagram.com/">Instagram</a>
+            <a href="https://facebook.com/">Facebook</a>
+            <a href="https://wa.me/919876543210">WhatsApp</a>
+            <a href="mailto:hello@elora.com">Email Us</a>
+        </div>
+
+    </div>
+
+    <div class="copyright">
+        © 2026 ÉLORA JEWELLERY. ALL RIGHTS RESERVED.
+    </div>
+</footer>
+
+</body>
+</html>
+
+
